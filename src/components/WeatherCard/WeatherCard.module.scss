@@ -1,0 +1,64 @@
+.card {
+	border: 1px solid transparent;
+	background-color: #0a0a0a;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 15px;
+	max-width: 400px;
+	width: 100%;
+	padding: 40px;
+	transition: all 0.3s linear;
+	&:hover {
+		cursor: pointer;
+		border: 1px solid #242424;
+	}
+}
+
+.card_header {
+	font-weight: 400;
+	margin-bottom: 10px;
+}
+
+.temperature {
+	font-size: 40px;
+	margin-bottom: 10px;
+}
+
+.feels_like {
+	font-size: 14px;
+}
+
+.card_controls {
+	display: flex;
+	margin-top: 20px;
+	gap: 10px;
+}
+
+.control_btn {
+	font-size: 18px;
+	padding: 8px 12px;
+	border-radius: 8px;
+	transition: all 0.3s linear;
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.remove_btn {
+	border: 1px solid #242424;
+	background-color: #0a0a0a;
+	&:hover {
+		background-color: #242424;
+	}
+}
+
+.update_btn {
+	color: black;
+	background-color: #fff;
+	&:hover {
+		background-color: #b4b4b4;
+	}
+}

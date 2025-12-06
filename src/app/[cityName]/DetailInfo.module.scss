@@ -1,0 +1,17 @@
+.container {
+	max-width: fit-content;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	justify-content: center;
+	background-color: #242424;
+	padding: 30px 60px;
+	margin: 0 auto;
+	border-radius: 15px;
+	font-size: 30px;
+}
+
+.loading_text {
+	text-align: center;
+	font-size: 30px;
+}
