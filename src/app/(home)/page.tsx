@@ -19,6 +19,7 @@ export default function Home() {
 			const citiesData = JSON.parse(savedCities)
 			dispatch(setInitCities(citiesData))
 		}
+		console.log(savedCities)
 	}, [dispatch])
 
 	return (

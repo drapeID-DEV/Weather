@@ -1,5 +1,6 @@
 'use client'
 
+import { DetailCard } from '@/components/DetailCard'
 import styles from './DetailInfo.module.scss'
 
 import { Header } from '@/components/Header'
@@ -46,16 +47,7 @@ export function DetailInfo({ city }: Props) {
 			{isLoading ? (
 				<p className={styles.loading_text}>Page is loading...</p>
 			) : (
-				<>
-					<div className={styles.container}>
-						<p>Temp: {tempData?.current.temp}°C</p>
-						<p>Feels like: {tempData?.current.feels_like}°C</p>
-						<p>Humidity: {tempData?.current.humidity}%</p>
-						<p>Clouds: {tempData?.current.clouds}%</p>
-						<p>Visibility: {tempData?.current.visibility}m</p>
-						<p>Wind speed: {tempData?.current.wind_speed}m/s</p>
-					</div>
-				</>
+				<DetailCard data={tempData} />
 			)}
 		</>
 	)

@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import citiesSlice from "./slices/citiesSlice";
+import cursorSlice from "./slices/cursorSlice";
 
 export const store = configureStore({
     reducer: {
         cities: citiesSlice.reducer,
+        cursor: cursorSlice.reducer,
     }
 });
 
