@@ -1,11 +1,10 @@
-// components/WeatherCard/WeatherCardView.tsx
 import styles from './WeatherCard.module.scss'
 import { IWeatherResponse } from '@/shared/types/weatherResponse.type'
 
 interface Props {
 	cityName: string
 	isLoading: boolean
-	tempData: IWeatherResponse | null
+	tempData: IWeatherResponse | undefined
 	onClick: () => void
 	onRemove: (e: React.MouseEvent<HTMLButtonElement>) => void
 	onUpdate: (e: React.MouseEvent<HTMLButtonElement>) => void

@@ -3,7 +3,7 @@ import styles from './DetailCard.module.scss'
 import { IWeatherResponse } from '@/shared/types/weatherResponse.type'
 
 interface Props {
-	data: IWeatherResponse | null
+	data: IWeatherResponse | undefined
 }
 
 export function DetailCard({ data }: Props) {

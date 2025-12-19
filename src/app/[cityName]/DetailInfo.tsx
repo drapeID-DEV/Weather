@@ -5,41 +5,20 @@ import styles from './DetailInfo.module.scss'
 
 import { Header } from '@/components/Header'
 import { CITIES } from '@/shared/data/cities.data'
-import { ICity } from '@/shared/types/city.type'
-import { IWeatherResponse } from '@/shared/types/weatherResponse.type'
 import { ParamValue } from 'next/dist/server/request/params'
-import { useEffect, useState } from 'react'
+import { useGetCityDataQuery } from '@/store/api/baseApi'
+import { skipToken } from '@reduxjs/toolkit/query'
 
 interface Props {
 	city: ParamValue
 }
 
 export function DetailInfo({ city }: Props) {
-	const [tempData, setTempData] = useState<IWeatherResponse | null>(null)
-	const [isLoading, setLoading] = useState(false)
 	const cityData = CITIES.find((c) => c.name === city)
-	const API_KEY = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY
 
-	const fetchWeather = (city: ICity | undefined) => {
-		setLoading(true)
-
-		if (city) {
-			fetch(
-				`https://api.openweathermap.org/data/3.0/onecall?lat=${city.lat}&lon=${city.lon}&units=metric&appid=${API_KEY}`
-			)
-				.then((res) => res.json())
-				.then((data: IWeatherResponse) => {
-					setTempData(data)
-				})
-				.finally(() => {
-					setLoading(false)
-				})
-		}
-	}
-
-	useEffect(() => {
-		fetchWeather(cityData)
-	}, [])
+	const { data, isLoading } = useGetCityDataQuery(cityData ?? skipToken, {
+		refetchOnMountOrArgChange: true
+	})
 
 	return (
 		<>
@@ -47,7 +26,7 @@ export function DetailInfo({ city }: Props) {
 			{isLoading ? (
 				<p className={styles.loading_text}>Page is loading...</p>
 			) : (
-				<DetailCard data={tempData} />
+				<DetailCard data={data} />
 			)}
 		</>
 	)
